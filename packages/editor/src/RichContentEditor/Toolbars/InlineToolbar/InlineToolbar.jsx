@@ -75,6 +75,10 @@ export default class InlineToolbar extends Component {
     this.ToolbarDecoration = props.toolbarDecorationFn();
   }
 
+  // shouldComponentUpdate(nextProps, nextState, nextContext) {
+  //   return !!this.isVisible();
+  // }
+
   componentWillMount() {
     this.props.pubsub.subscribe('selection', this.onSelectionChanged);
   }
@@ -322,6 +326,9 @@ export default class InlineToolbar extends Component {
   }
 
   render() {
+    if (!this.isVisible()) {
+      return null;
+    }
     const { theme } = this.props;
     const { toolbarStyles } = theme || {};
 

@@ -10,7 +10,7 @@ const displayOptionStyles = {
   [DISPLAY_MODE.FLOATING]: { position: 'absolute' },
 };
 
-export default class StaticToolbar extends React.Component {
+export default class StaticToolbar extends React.PureComponent {
   static propTypes = {
     pubsub: PropTypes.object.isRequired,
     structure: PropTypes.array.isRequired,

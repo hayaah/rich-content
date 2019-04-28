@@ -55,6 +55,8 @@ export default class SideToolbar extends Component {
       isVisible = visibilityFn(editorState);
     }
 
+    this.setState({ isVisible });
+
     if (!isVisible) {
       this.setState({
         position: {
@@ -114,6 +116,9 @@ export default class SideToolbar extends Component {
   }
 
   render() {
+    if (!this.state.isVisible) {
+      return null;
+    }
     const { theme } = this.props;
     const { wrapperStyles } = theme || {};
 

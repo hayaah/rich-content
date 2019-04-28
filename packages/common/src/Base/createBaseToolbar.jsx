@@ -122,7 +122,7 @@ export default function createToolbar({
     }
 
     shouldComponentUpdate() {
-      return this.state.isVisible;
+      return !!this.state.isVisible;
     }
 
     onEditorBoundsChange = editorBounds => {
