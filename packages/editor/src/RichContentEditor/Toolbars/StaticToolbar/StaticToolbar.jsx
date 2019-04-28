@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Measure from 'react-measure';
 import { DISPLAY_MODE } from 'wix-rich-content-common';
 import Styles from '../../../../statics/styles/static-toolbar.scss';
+import debounce from 'lodash/debounce';
 
 const displayOptionStyles = {
   [DISPLAY_MODE.NORMAL]: {},
@@ -63,7 +64,7 @@ export default class StaticToolbar extends React.PureComponent {
   }
 
   onSelectionChanged = () => {
-    setTimeout(() => this.forceUpdate(), 0); // wait for next tick. So editorState will be updated
+    debounce(() => this.forceUpdate(), 40); // wait for next tick. So editorState will be updated
   };
 
   scrollToolbar(event, leftDirection) {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { AtomicBlockUtils, EditorState, SelectionState } from '@wix/draft-js';
 import cloneDeep from 'lodash/cloneDeep';
@@ -10,7 +10,7 @@ import ToolbarButton from '../Components/ToolbarButton';
 import styles from '../../statics/styles/toolbar-button.scss';
 
 export default ({ blockType, button, helpers, pubsub, settings, t }) => {
-  class InsertPluginButton extends Component {
+  class InsertPluginButton extends React.PureComponent {
     constructor(props) {
       super(props);
       this.state = {};
